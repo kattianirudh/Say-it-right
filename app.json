@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "SayItRight",
+    "slug": "SayItRight",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
