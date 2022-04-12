@@ -1,10 +1,224 @@
-import { View, Text } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet, TextInput, ScrollView, FlatList } from 'react-native'
 import React from 'react'
+import UserProfile from '../assets/images/UserProfile.svg'
+import searchIcon from '../assets/images/searchIcon.svg'
+import rightChevron from '../assets/images/rightChevron.svg'
 
-export default function Home() {
+let arr = [
+  {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }, {
+    id: 1,
+    name: 'Random',
+    description: 'Random description',
+  }
+]
+
+export default function Home(props) {
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={styles.body}>
+      <View style={styles.header}>
+        <Text style={styles.header}>Groups</Text>
+        <Pressable onPress={() => props.navigation.navigate('UserProfile')}>
+          <Image style={styles.image} source={UserProfile} />
+        </Pressable>
+      </View>
+      <View>
+        <TextInput style={styles.search} placeholder="Search Public Groups" />
+        <Image style={[styles.icon ,styles.searchIcon]} source={searchIcon} />
+      </View>
+      <View style={styles.scrollParent}>
+        {/* <ScrollView style={styles.scroll} stickyHeaderIndices={[1]} contentContainerStyle={{ flex: 1 }}> */}
+        {
+          arr.map((item, index) => {
+            return (
+              <Pressable onPress={() => props.navigation.navigate('Group')}>
+                <View style={styles.group}>
+                  <Image style={[styles.icon, styles.groupImage]} source={UserProfile} />
+                  <View style={styles.groupInfo}>
+                    <View style={styles.groupNameContainer}>
+                      <Text style={styles.groupNameText}>Group Name</Text>
+                      <Text style={styles.admin}>Admin</Text>
+                    </View>
+                    <Text style={styles.groupDescription}>Group Description</Text>
+                  </View>
+                  <View style={styles.fullWidth}>
+                    <Image style={[styles.icon ,styles.groupIcon]} source={rightChevron} />
+                  </View>
+                </View>
+              </Pressable>
+            )
+          })
+        }
+        {/* </ScrollView> */}
+
+        {/* <FlatList 
+          data={arr}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => props.navigation.navigate('Group')}>
+                <View style={styles.group}>
+                  <Image style={[styles.icon, styles.groupImage]} source={UserProfile} />
+                  <View style={styles.groupInfo}>
+                    <View style={styles.groupNameContainer}>
+                      <Text style={styles.groupNameText}>Group Name</Text>
+                      <Text style={styles.admin}>Admin</Text>
+                    </View>
+                    <Text style={styles.groupDescription}>Group Description</Text>
+                  </View>
+                  <View style={styles.fullWidth}>
+                    <Image style={[styles.icon ,styles.groupIcon]} source={rightChevron} />
+                  </View>
+                </View>
+              </Pressable>
+          )}
+          keyExtractor={item => item.id}
+        /> */}
+      </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  body: {
+    padding: 30,
+    position: 'relative',
+  },
+  image: {
+    width: 50,
+    height: 50,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'fixed',
+  },
+  header: {
+    fontSize: 30,
+    color: '#000000',
+    fontWeight: 'bold',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  search: {
+    borderWidth: 1,
+    borderColor: '#000000',
+    borderRadius: 10,
+    padding: 10,
+    paddingLeft: 35,
+    marginTop: 20,
+  },
+  searchIcon: {
+    position: 'absolute',
+    marginTop: 25,
+    marginLeft: 7,
+  },
+  icon: {
+    width: 25,
+    height: 25,
+  }, group: {
+    marginTop: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#969FAA',
+  }, groupName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  }, 
+  groupInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: 10,
+  }, groupNameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  groupImage: {
+    marginTop: 10,
+    width: 35,
+    height: 35,
+  },
+  groupIcon: {
+    flexDirection: 'flex-end',
+    marginTop: 10,
+    marginRight: 10,
+  },
+  fullWidth: {
+    flex: 1,
+    flexDirection: 'row-reverse',
+  }, admin: {
+    paddingLeft: 3,
+    paddingRight: 3,
+    paddingTop: 1,
+    paddingBottom: 1,
+    borderWidth: 1,
+    borderColor: '#8492A6',
+    borderRadius: 4,
+    marginLeft: 10,
+    color: '#47525E',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }, groupNameContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+  }, scrollParent: {
+    flex: 1,
+    height: '50%',
+  }
+})
