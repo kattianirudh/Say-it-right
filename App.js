@@ -10,13 +10,19 @@ import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import AddMembers from './pages/AddMembers';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="AddMembers">
+      <Stack.Screen
+          name="AddMembers"
+          component={AddMembers}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Login"
           component={Login}
