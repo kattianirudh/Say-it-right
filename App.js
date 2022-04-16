@@ -11,13 +11,19 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import AddMembers from './pages/AddMembers';
+import CreateGroup from './pages/CreateGroup';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AddMembers">
+      <Stack.Navigator initialRouteName="CreateGroup">
+      <Stack.Screen
+          name="CreateGroup"
+          component={CreateGroup}
+          options={{headerShown: false}}
+        />
       <Stack.Screen
           name="AddMembers"
           component={AddMembers}
