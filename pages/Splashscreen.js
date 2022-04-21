@@ -10,7 +10,7 @@ const Splashscreen = (props) => {
         <Image source={Mic} style={[styles.icon, styles.image]} />
         <Text style={styles.subtitle}>Saying the name can never go wrong again</Text>
         <View style={styles.buttonContainer}>
-          <Pressable style={styles.button} onPress={() => props.navigation.navigate('Login')}>
+          <Pressable style={styles.button} onPress={() => props.navigation.navigate('Home')}>
             <Text style={styles.buttonText}>Login</Text>
           </Pressable>
           <Text style={styles.text}>
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Splashscreen
+export default Splashscreen;

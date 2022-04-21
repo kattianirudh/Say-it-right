@@ -78,12 +78,11 @@ export default function Home(props) {
         <Image style={[styles.icon ,styles.searchIcon]} source={searchIcon} />
       </View>
       <View style={styles.scrollParent}>
-        {/* <ScrollView style={styles.scroll} stickyHeaderIndices={[1]} contentContainerStyle={{ flex: 1 }}> */}
         {
           arr.map((item, index) => {
             return (
-              <Pressable onPress={() => props.navigation.navigate('Group')}>
-                <View style={styles.group}>
+              <Pressable onPress={() => props.navigation.navigate('Group')} key={index} >
+                <View style={styles.group} key={index}>
                   <Image style={[styles.icon, styles.groupImage]} source={UserProfile} />
                   <View style={styles.groupInfo}>
                     <View style={styles.groupNameContainer}>
@@ -100,29 +99,12 @@ export default function Home(props) {
             )
           })
         }
-        {/* </ScrollView> */}
-
-        {/* <FlatList 
-          data={arr}
-          renderItem={({ item }) => (
-            <Pressable onPress={() => props.navigation.navigate('Group')}>
-                <View style={styles.group}>
-                  <Image style={[styles.icon, styles.groupImage]} source={UserProfile} />
-                  <View style={styles.groupInfo}>
-                    <View style={styles.groupNameContainer}>
-                      <Text style={styles.groupNameText}>Group Name</Text>
-                      <Text style={styles.admin}>Admin</Text>
-                    </View>
-                    <Text style={styles.groupDescription}>Group Description</Text>
-                  </View>
-                  <View style={styles.fullWidth}>
-                    <Image style={[styles.icon ,styles.groupIcon]} source={rightChevron} />
-                  </View>
-                </View>
-              </Pressable>
-          )}
-          keyExtractor={item => item.id}
-        /> */}
+      </View>
+      <View style={styles.floatingButtonContainer}>
+        <Pressable style={styles.floatingButton} onPress={() => this.props.navigation.navigate('Group')}>
+            <Text style={styles.plusButton}>+</Text>
+            <Text style={styles.floatingButtonText}>Create a Group</Text>
+        </Pressable>
       </View>
     </View>
   )
@@ -192,7 +174,7 @@ const styles = StyleSheet.create({
     height: 35,
   },
   groupIcon: {
-    flexDirection: 'flex-end',
+    // flexDirection: 'flex-end',
     marginTop: 10,
     marginRight: 10,
   },
@@ -220,5 +202,34 @@ const styles = StyleSheet.create({
   }, scrollParent: {
     flex: 1,
     height: '50%',
-  }
+  }, floatingButtonContainer: {
+    position: 'fixed',
+    bottom: 20,
+    right: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  floatingButton: {
+      borderRadius: 5,
+      backgroundColor: '#000000',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 13,
+  },
+  floatingButtonText: {
+      color: '#FFFFFF',
+  },
+  floatingButtonIcon: {
+      width: 25,
+      height: 25,
+      backgroundColor: 'white',
+  },
+  plusButton : {
+      fontSize: 15,
+      color: '#FFFFFF',
+      marginRight: 5,
+  },
 })
