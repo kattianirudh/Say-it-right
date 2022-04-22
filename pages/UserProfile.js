@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, Button, Pressable, Image } from 'react-native'
 import React from 'react'
 import UserProfile from '../assets/images/UserProfile.svg'
-import house from '../assets/images/house.svg'
+import svgImage from '../assets/images/house.svg'
 import Mic from '../assets/images/Mic.svg'
+import Setting from '../assets/images/Setting.svg'
 
 let arr = [
     {
@@ -70,7 +71,10 @@ export default function Home(props) {
         <View style={styles.header}>
           <Text style={styles.header}>UserName</Text> 
           <Pressable onPress={() => props.navigation.navigate('Home')}>
-            <Image style={styles.image} source={house} />
+            <Image style={styles.image} source={svgImage} />  
+          </Pressable>
+          <Pressable onPress={() => props.navigation.navigate('Setting')}>
+            <Image style={styles.image} source={Setting} />
           </Pressable>
         </View>
         <View><TextInput style={styles.desc} placeholder="Username Description" />
