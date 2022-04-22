@@ -20,8 +20,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
-      {/* <Stack.Navigator initialRouteName="GroupList"> */}
+      {/* <Stack.Navigator initialRouteName="SplashScreen"> */}
+      <Stack.Navigator initialRouteName="CreateGroup">
       <Stack.Screen
           name="CreateGroup"
           component={CreateGroup}

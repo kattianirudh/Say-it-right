@@ -114,7 +114,7 @@ export default function Home(props) {
 
 const styles = StyleSheet.create({
   body: {
-    padding: 30,
+    padding: 20,
     position: 'relative',
   },
   image: {
@@ -172,9 +172,9 @@ const styles = StyleSheet.create({
   }, group: {
     marginTop: 20,
     display: 'flex',
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#969FAA',
+
   }, groupName: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -191,8 +191,8 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: '#ffffff',
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 15,
+    // fontWeight: 'bold',
   },
   fullWidth: {
     flex: 1,
@@ -202,8 +202,8 @@ const styles = StyleSheet.create({
     paddingRight: 3,
     paddingTop: 1,
     paddingBottom: 1,
-    borderWidth: 1,
-    borderColor: '#8492A6',
+    // borderWidth: 1,
+    // borderColor: '#8492A6',
     borderRadius: 4,
     marginLeft: 10,
     color: '#47525E',
@@ -217,13 +217,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   button: {
-    width: '15%',
+    // width: '15%',
     backgroundColor: '#000000',
+    paddingLeft: 10,
+    paddingRight: 10,
     borderRadius: 10,
-
-    marginLeft: 600,
+    alignItems: 'flex-end',
+    // marginLeft: 600,
     height: 50,
-    alignSelf: 'center',
+    alignSelf: 'end',
     justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
